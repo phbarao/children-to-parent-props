@@ -1,12 +1,14 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 
 import Child from "../Child";
 import "./styles.css";
 
-export default function Parent() {
+function Parent() {
   const [title, setTitle] = useState("Parent");
 
-  const newTitle = useCallback((word) => setTitle(word), []);
+  function newTitle(word) {
+    setTitle(word);
+  }
 
   return (
     <div className="parent">
@@ -16,3 +18,5 @@ export default function Parent() {
     </div>
   );
 }
+
+export default Parent;

@@ -1,17 +1,17 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 
 import "./styles.css";
 
 function Child({ changeTitle }) {
   const [inputText, setInputText] = useState("");
 
-  const handleInputChange = useCallback((event) => {
+  function handleInputChange(event) {
     setInputText(event.target.value);
-  }, []);
+  }
 
-  const newTitle = useCallback(() => {
+  function sendTitle() {
     changeTitle(inputText);
-  }, [changeTitle, inputText]);
+  }
 
   return (
     <div className="child">
@@ -19,7 +19,7 @@ function Child({ changeTitle }) {
 
       <input onChange={handleInputChange} type="text" />
 
-      <button onClick={newTitle}>Change Title</button>
+      <button onClick={sendTitle}>Change Title</button>
     </div>
   );
 }
